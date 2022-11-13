@@ -36,8 +36,8 @@ public class ItemController {
         this.myListener = myListener;
         this.product = product;
         this.nameLabel.setText(product.getName());
-        this.priceLable.setText(CURRENCY + product.getPrice());
-        Image image = new Image(Objects.requireNonNull(Main.class.getResourceAsStream(product.getImgSrc())));
-        this.img.setImage(image);
+        this.priceLable.setText(String.valueOf(product.getPrice()));
+//        Image image = new Image(Objects.requireNonNull(Main.class.getResourceAsStream(product.getImgSrc())));
+        this.img.setImage(product.getImg());
     }
 }

@@ -1,6 +1,7 @@
 package application.utils;
 
 import application.Main;
+import application.controller.AppController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +15,7 @@ import java.sql.*;
 import java.util.Objects;
 
 public class DBUtils {
+//    public static Account myAccount = ;
     public static void changeScene(ActionEvent event, String url, String title) {
         Parent root = null;
         try {
@@ -114,6 +116,8 @@ public class DBUtils {
                         alert.setContentText("Password doest not match!!!");
                         alert.show();
                     } else {
+                        Account.setAccountId(resultSet.getString(1));
+//                        System.out.println(resultSet.getString(1) + resultSet.getString(2));
                         changeScene(event, "Main.fxml", "Grocery Manager");
                     }
                 }
