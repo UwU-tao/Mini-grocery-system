@@ -1,4 +1,4 @@
-package Stocks;
+package application;
 
 public class Product {
     private String name;
@@ -37,5 +37,4 @@ public class Product {
     public void setColor(String color) {
         this.color = color;
     }
-    public Product() {}
 }

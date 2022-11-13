@@ -1,5 +1,6 @@
-package application;
+package application.controller;
 
+import application.utils.DBUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
