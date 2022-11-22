@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@Css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@Css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.customers.DashboardController">
    <children>
       <Pane prefHeight="600.0" prefWidth="320.0">
          <children>
@@ -30,39 +31,39 @@
             </Pane>
             <Pane fx:id="chosenCard" layoutX="28.0" layoutY="172.0" prefHeight="383.0" prefWidth="265.0" styleClass="shopping-online-card" stylesheets="@Css/style.css">
                <children>
-                  <Label fx:id="label" layoutX="14.0" layoutY="29.0" prefHeight="38.0" prefWidth="131.0" text="Ice Cream" textFill="WHITE">
+                  <Label fx:id="label" layoutX="14.0" layoutY="29.0" prefHeight="38.0" prefWidth="131.0" text="Item name" textFill="WHITE">
                      <font>
-                        <Font name="Cambria" size="30.0" />
+                        <Font name="Cambria" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="price" layoutX="182.0" layoutY="29.0" prefHeight="38.0" prefWidth="68.0" text="0.99" textFill="WHITE">
+                  <Label fx:id="price" layoutX="182.0" layoutY="29.0" prefHeight="38.0" prefWidth="68.0" textFill="WHITE">
                      <font>
-                        <Font name="Cambria" size="30.0" />
+                        <Font name="Cambria" size="28.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img" fitHeight="200.0" fitWidth="200.0" layoutX="33.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" scaleY="0.7">
+                  <ImageView fx:id="img" fitHeight="220.0" fitWidth="220.0" layoutX="23.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" scaleY="0.7">
                      <image>
                         <Image url="@Img/ice_cream.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="29.0" layoutY="274.0" prefHeight="25.0" prefWidth="57.0" text="Qty" textFill="WHITE">
+                  <Label layoutX="23.0" layoutY="275.0" prefHeight="25.0" prefWidth="57.0" text="Qty" textFill="WHITE">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="addButton" layoutX="26.0" layoutY="336.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="213.0" styleClass="add-btn" stylesheets="@Css/style.css" text="ADD TO CART" textFill="#828282">
+                  <Button fx:id="addButton" layoutX="26.0" layoutY="339.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="213.0" styleClass="add-btn" stylesheets="@Css/style.css" text="ADD TO CART" textFill="#828282">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="quantity" layoutX="88.0" layoutY="275.0" prefHeight="30.0" prefWidth="146.0" promptText="Quantity" styleClass="search-box" stylesheets="@Css/style.css">
+                  <TextField fx:id="quantity" layoutX="88.0" layoutY="275.0" prefHeight="30.0" prefWidth="153.0" promptText="Quantity" styleClass="search-box" stylesheets="@Css/style.css">
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font>
                   </TextField>
                   <Label fx:id="price1" layoutX="161.0" layoutY="29.0" prefHeight="38.0" prefWidth="19.0" text="\$" textFill="WHITE">
                      <font>
-                        <Font name="Cambria" size="30.0" />
+                        <Font name="Cambria" size="28.0" />
                      </font>
                   </Label>
                </children></Pane>
@@ -83,7 +84,7 @@
             </Label>
          </children>
       </Pane>
-      <ScrollPane fx:id="scrollPane" layoutX="320.0" layoutY="128.0" prefHeight="460.0" prefWidth="570.0">
+      <ScrollPane fx:id="scrollPane" layoutX="320.0" layoutY="141.0" prefHeight="447.0" prefWidth="566.0" styleClass="transparent" stylesheets="@Css/style.css">
          <content>
             <GridPane fx:id="gridPane">
               <rowConstraints>
@@ -91,6 +92,14 @@
               </rowConstraints>
             </GridPane>
          </content>
+         <padding>
+            <Insets left="35.0" top="-10.0" />
+         </padding>
       </ScrollPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="537.0" layoutY="90.0" prefHeight="50.0" prefWidth="131.0" text="Products">
+         <font>
+            <Font name="Cambria Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

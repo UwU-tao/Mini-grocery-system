@@ -1,7 +1,7 @@
 package application.main;
 
 
-import application.Product;
+import application.models.Product;
 
 public interface MyListener {
     public void onClickListener(Product product);

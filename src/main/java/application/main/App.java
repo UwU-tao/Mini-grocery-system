@@ -1,7 +1,9 @@
 package application.main;
 
 import application.Main;
+import application.utils.DataSource;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,11 +19,33 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("SignInUI.fxml")));
 
-        stage.setTitle("Grocery Manager!");
+        stage.setTitle("Login");
         stage.setResizable(false);
 
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @Override
+    public void init() {
+        try {
+            super.init();
+            if (!DataSource.getInstance().open()) {
+                System.out.println("Failed to connect to database");
+                Platform.exit();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void stop() {
+        try {
+            super.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

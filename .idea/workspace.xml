@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="shopping cart">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Categories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/Helper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/PasswordUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/AppController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CartItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/main/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/main/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/main/MyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Cart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DBUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/CartItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Item.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/SignInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/SignInUI.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HRc8QclOwG2ObWILHMAGGsI231" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Java/StoreManagementSystem-main",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\demo\src\main\java\application" />
+      <recent name="D:\Java\demo\src\main\resources\application" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\demo\src\main\resources\application\Customer" />
+      <recent name="D:\Java\demo\src\main\resources\application" />
+      <recent name="D:\Java\demo\src\main\resources\application\controller" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="application" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="application" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.main.App" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Main" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="" />
+      <created>1668251177904</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668251177904</updated>
+      <workItem from="1668251179116" duration="5593000" />
+      <workItem from="1668305144418" duration="16084000" />
+      <workItem from="1668337452233" duration="101000" />
+      <workItem from="1668337673968" duration="17746000" />
+      <workItem from="1668396129233" duration="15763000" />
+      <workItem from="1668522775052" duration="802000" />
+      <workItem from="1668529327325" duration="14000" />
+      <workItem from="1668697991602" duration="177000" />
+      <workItem from="1668864827753" duration="5946000" />
+      <workItem from="1668907959081" duration="25984000" />
+      <workItem from="1668997298055" duration="15267000" />
+      <workItem from="1669082866353" duration="7420000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1668315422354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668315422354</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit">
+      <created>1668315586622</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668315586622</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit">
+      <created>1668315694612</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668315694612</updated>
+    </task>
+    <task id="LOCAL-00004" summary="shopping cart">
+      <created>1668358502235</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668358502235</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <MESSAGE value="shopping cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="shopping cart" />
+  </component>
+</project>

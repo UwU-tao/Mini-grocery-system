@@ -1,6 +1,6 @@
 .search-box{
     -fx-background-color:#FFFFFF;
-    -fx-background-radius: 100;
+    -fx-background-radius: 20;
 }
 
 .transparent{
@@ -9,7 +9,7 @@
 
 .search-button{
     -fx-background-color: #828282;
-    -fx-background-radius: 30;
+    -fx-background-radius: 20;
 }
 
 .right-bar{
@@ -43,6 +43,11 @@
 .shopping-online-card{
     -fx-background-color: #BAEAC3;
     -fx-background-radius: 30;
+}
+
+.temp{
+    -fx-background-color: #BAEAC3;
+/*    -fx-background-radius: 30;*/
 }
 
 .fruit-item{

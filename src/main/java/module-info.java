@@ -10,6 +10,10 @@ module demo.app.demo {
     opens application.main to javafx.fxml;
     exports application.controller;
     opens application.controller to javafx.fxml;
+    exports application.models;
+    opens application.models to javafx.fxml;
     exports application.utils;
     opens application.utils to javafx.fxml;
+    exports application.controller.customers;
+    opens application.controller.customers to javafx.fxml;
 }
