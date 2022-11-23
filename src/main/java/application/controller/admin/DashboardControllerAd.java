@@ -61,5 +61,11 @@ public class DashboardControllerAd implements Initializable {
         addProducts.setOnAction(event -> {
             DataSource.getInstance().fxmlLoader(event, "Admin/addproductslist.fxml");
         });
+
+        productsList.setOnAction(event -> {
+            FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/productslist.fxml");
+            ProductsListController controller = loader.getController();
+            controller.showProducts();
+        });
     }
 }

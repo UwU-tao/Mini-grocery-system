@@ -26,8 +26,9 @@
 }
 
 .comboBox{
-    -fx-background-color: rgba(255,255,255,0.3);
+/*    -fx-background-color: rgba(255,255,255,0.3);*/
     -fx-background-radius: 30;
+    -fx-background-color: #a6a6a6;
 }
 
 .add-btn{
@@ -53,4 +54,8 @@
 .fruit-item{
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
+}
+
+.table-column {
+  -fx-alignment: CENTER;
 }

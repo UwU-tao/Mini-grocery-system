@@ -2,6 +2,7 @@ package application.utils;
 
 import application.Main;
 import application.controller.UserController;
+import application.models.Categories;
 import application.models.Product;
 import application.models.User;
 import javafx.css.Match;
@@ -14,6 +15,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,7 +69,7 @@ public class DataSource extends Product {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(path));
         try {
             Parent root = loader.load();
-            Node node =  (Node) event.getSource();
+            Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -134,6 +137,7 @@ public class DataSource extends Product {
             return false;
         }
     }
+
     public User getUserByUsername(String username) {
         User user = new User();
         try {
@@ -155,9 +159,53 @@ public class DataSource extends Product {
         return user;
     }
 
-    public void addProduct(String name, double price, Date expirationDate, int quantity) {
+    public boolean addProduct(int categoryid, String namee, double price, Date expirationDate, int quantity) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String datee = dateFormat.format(expirationDate);
+        System.out.println(datee);
 
+        try {
+            PreparedStatement ps = con.prepareStatement("insert into login.products(categoryid, name, price, expireddate, quantity, sales) values ("+categoryid+", " + "'" + namee + "'" + ", " + price  + ", " + "'" + datee + "', " + quantity + ", " + 0 + ")");
+
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
+
+    public int getCategoryId(String namee) {
+
+        try {
+            int id = 0;
+            PreparedStatement ps = con.prepareStatement("select * from login.categories where name = ? limit 1");
+            ps.setString(1, namee);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    public List<String> getCategories() {
+        List<String> categories = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.categories");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Categories cate = new Categories();
+                cate.setCategoryid(rs.getInt(1));
+                cate.setName(rs.getString(2));
+                categories.add(cate.getName());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
+    }
+
     public boolean validUsername(String username) {
         Matcher matcher = Pattern.compile("^(?=.{5,})(?![._])(?!.*[._]{2})[A-Za-z0-9]+(?<![._])$", Pattern.CASE_INSENSITIVE).matcher(username);
         return matcher.find();

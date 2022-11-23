@@ -41,7 +41,7 @@ public class CartController implements Initializable {
     public void showProducts() {
         Task<ObservableList<Product>> getProductTask = new Task<>() {
             @Override
-            protected ObservableList<Product> call() throws Exception {
+            protected ObservableList<Product> call() {
                 return FXCollections.observableArrayList(DataSource.getInstance().getProducts());
             }
         };

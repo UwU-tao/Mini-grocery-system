@@ -19,3 +19,11 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 .project
 .classpath
+dataSources
+dataSources.local.xml
+dataSources.xml
+encodings.xml
+misc.xml
+uiDesigner.xml
+vcs.xml
+workspace.xml
