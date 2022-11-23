@@ -3,7 +3,6 @@ module demo.app.demo {
     requires javafx.fxml;
     requires java.sql;
 
-
     opens application to javafx.fxml;
     exports application;
     exports application.main;
@@ -15,5 +14,7 @@ module demo.app.demo {
     exports application.utils;
     opens application.utils to javafx.fxml;
     exports application.controller.customers;
+
     opens application.controller.customers to javafx.fxml;
+    opens application.controller.admin to javafx.fxml;
 }

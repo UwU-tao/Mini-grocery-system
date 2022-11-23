@@ -4,36 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="shopping cart">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Categories.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/Helper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/utils/PasswordUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/AppController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CartItemController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ItemController.java" beforeDir="false" />
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="another commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductsListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/DashboardControllerAd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/ProductsListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/EditPassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/main/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/main/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/main/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/main/MyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Cart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DBUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/main/MyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/CartItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Item.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/SignInUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/SignInUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Main.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,25 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java/StoreManagementSystem-main",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/demo&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\demo\src\main\resources\application\Customer" />
       <recent name="D:\Java\demo\src\main\java\application" />
       <recent name="D:\Java\demo\src\main\resources\application" />
     </key>
@@ -110,6 +103,8 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="application.Main" />
       <module name="demo" />
       <extension name="coverage">
@@ -122,6 +117,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -148,7 +147,11 @@
       <workItem from="1668864827753" duration="5946000" />
       <workItem from="1668907959081" duration="25984000" />
       <workItem from="1668997298055" duration="15267000" />
-      <workItem from="1669082866353" duration="7420000" />
+      <workItem from="1669082866353" duration="22536000" />
+      <workItem from="1669109529709" duration="13591000" />
+      <workItem from="1669175262314" duration="395000" />
+      <workItem from="1669175668607" duration="860000" />
+      <workItem from="1669176570350" duration="6134000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1668315422354</created>
@@ -178,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668358502235</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="another commit">
+      <created>1669094492231</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669094492231</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +208,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="shopping cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="shopping cart" />
+    <MESSAGE value="another commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="another commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

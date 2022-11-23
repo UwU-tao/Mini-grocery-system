@@ -13,6 +13,8 @@ public class Product {
     private Date expireddate;
     private double price;
     private int quantity;
+    private String category;
+    private double sales;
 
     public int getProductid() {
         return productid;
@@ -60,6 +62,22 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public double getSales() {
+        return sales;
+    }
+
+    public void setSales(double sales) {
+        this.sales = sales;
     }
 
     public Product() {

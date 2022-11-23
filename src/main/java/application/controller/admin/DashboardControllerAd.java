@@ -1,16 +1,16 @@
-package application.controller.customers;
+package application.controller.admin;
 
 import application.Main;
 import application.controller.UserController;
-import application.models.Product;
 import application.utils.DataSource;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,29 +19,22 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable {
+public class DashboardControllerAd implements Initializable {
 
     @FXML
-    private Button cart;
+    private Button addProducts;
 
     @FXML
     private Button logout;
-    @FXML
-    private Button edit;
 
     @FXML
-    private StackPane stack;
+    private Button ordersDetails;
 
     @FXML
-    private TableView<Product> tableView;
-
-    @FXML
-    private Label name;
+    private Button productsList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        name.setText(UserController.getUsername().toUpperCase());
-
         logout.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Are you sure you want to log out?");
@@ -65,15 +58,8 @@ public class DashboardController implements Initializable {
             }
         });
 
-        cart.setOnAction(event -> {
-            FXMLLoader fxmlLoader = DataSource.getInstance().fxmlLoader(event,"Customer/cart.fxml");
-            CartController cartController = fxmlLoader.getController();
-            cartController.showProducts();
-        });
-
-        edit.setOnAction(event -> {
-            DataSource.getInstance().fxmlLoader(event, "Customer/editpassword.fxml");
-
+        addProducts.setOnAction(event -> {
+            DataSource.getInstance().fxmlLoader(event, "Admin/addproductslist.fxml");
         });
     }
 }

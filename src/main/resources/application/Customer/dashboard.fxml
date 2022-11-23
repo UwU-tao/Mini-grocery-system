@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.customers.DashboardController">
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.customers.DashboardController">
    <children>
       <VBox prefHeight="600.0" prefWidth="200.0" styleClass="right-bar" stylesheets="@../Css/style.css">
          <children>
@@ -24,16 +25,12 @@
             </ImageView>
             <Pane prefHeight="50.0" prefWidth="150.0">
                <children>
-                  <Button layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Dashboard">
+                  <Button layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Home">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="15.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Img/line-chart.png" />
-                     </image>
-                  </ImageView>
+                  <FontAwesomeIconView glyphName="HOME" layoutX="20.0" layoutY="40.0" size="40" />
                </children>
             </Pane>
             <Pane prefHeight="50.0" prefWidth="150.0">
@@ -52,7 +49,7 @@
             </Pane>
             <Pane prefHeight="50.0" prefWidth="150.0">
                <children>
-                  <Button layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Setting">
+                  <Button fx:id="edit" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Change Pass">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -128,14 +125,16 @@
                </font>
                <padding>
                   <Insets left="40.0" />
-               </padding></Button>
+               </padding>
+            </Button>
             <Button layoutX="420.0" layoutY="15.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" styleClass="right-bar" stylesheets="@../Css/style.css" text="DRINKS">
                <padding>
                   <Insets left="40.0" />
                </padding>
                <font>
                   <Font name="System Bold" size="24.0" />
-               </font></Button>
+               </font>
+            </Button>
             <Label layoutX="56.0" layoutY="109.0" prefHeight="25.0" prefWidth="100.0" text="Best-seller">
                <font>
                   <Font name="System Bold" size="20.0" />

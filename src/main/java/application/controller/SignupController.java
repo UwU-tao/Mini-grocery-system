@@ -83,6 +83,11 @@ public class SignupController implements Initializable {
                 valid = false;
             }
 
+            if (DataSource.getInstance().getUserByUsername(user) != null) {
+                error += "This username has been used";
+                valid = false;
+            }
+
             if (!valid) {
                 Helper.alertBox("Sign Up Failed!", error);
             } else {
@@ -102,9 +107,9 @@ public class SignupController implements Initializable {
                     stage.close();
                     try {
                         if (us.getAdmin() == 0) {
-                            scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Main.fxml"))));
+                            scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Customer/dashboard.fxml"))));
                         } else if (us.getAdmin() == 1) {
-                            scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Main.fxml"))));
+                            scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Admin/dashboard.fxml"))));
                         }
                         stage.setScene(scene);
                         stage.show();

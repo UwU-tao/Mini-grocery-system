@@ -61,7 +61,7 @@ public class LoginController implements Initializable {
                             if (us.getAdmin() == 0) {
                                 scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Customer/dashboard.fxml"))));
                             } else if (us.getAdmin() == 1) {
-
+                                scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Admin/dashboard.fxml"))));
                             }
                         } catch (IOException e) {
                             e.printStackTrace();

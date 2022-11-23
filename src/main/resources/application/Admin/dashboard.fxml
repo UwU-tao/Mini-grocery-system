@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.admin.DashboardControllerAd">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="200.0" styleClass="right-bar" stylesheets="@../Css/style.css">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Img/logo.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Button layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Dashboard">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Img/line-chart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Button fx:id="ordersDetails" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Orders Details">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Img/check-list.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Button fx:id="addProducts" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Add products">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Img/add.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Button fx:id="productsList" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Products list">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Img/features.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Button fx:id="logout" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Logout">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Img/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

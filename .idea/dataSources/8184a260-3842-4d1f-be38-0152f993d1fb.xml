@@ -1217,63 +1217,67 @@ userid</ColNames>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <foreign-key id="330" parent="301" name="fk_product_category1">
+    <column id="330" parent="301" name="sales">
+      <DataType>double|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="331" parent="301" name="fk_product_category1">
       <ColNames>categoryid</ColNames>
       <RefColNames>categoryid</RefColNames>
       <RefTableName>categories</RefTableName>
     </foreign-key>
-    <index id="331" parent="301" name="PRIMARY">
+    <index id="332" parent="301" name="PRIMARY">
       <ColNames>productid
 categoryid</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="332" parent="301" name="fk_product_category1_idx">
+    <index id="333" parent="301" name="fk_product_category1_idx">
       <ColNames>categoryid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="301" name="PRIMARY">
+    <key id="334" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="334" parent="302" name="userid">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="335" parent="302" name="userid">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="335" parent="302" name="username">
+    <column id="336" parent="302" name="username">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="336" parent="302" name="password">
+    <column id="337" parent="302" name="password">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="337" parent="302" name="email">
+    <column id="338" parent="302" name="email">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="338" parent="302" name="admin">
+    <column id="339" parent="302" name="admin">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="339" parent="302" name="salt">
+    <column id="340" parent="302" name="salt">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="340" parent="302" name="PRIMARY">
+    <index id="341" parent="302" name="PRIMARY">
       <ColNames>userid</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="341" parent="302" name="PRIMARY">
+    <key id="342" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

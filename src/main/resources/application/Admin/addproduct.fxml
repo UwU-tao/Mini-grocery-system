@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.admin.AddProductController">
+   <children>
+      <TextField layoutX="40.0" layoutY="115.0" prefHeight="40.0" prefWidth="360.0" promptText="Search for product ID, category or something..." />
+      <Label layoutX="39.0" layoutY="60.0" text="Add products">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="180.0" text="Product name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="40.0" layoutY="200.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter product name" />
+      <Label layoutX="40.0" layoutY="250.0" text="Category">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="40.0" layoutY="270.0" prefHeight="30.0" prefWidth="180.0" />
+      <Label layoutX="320.0" layoutY="180.0" text="Price">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="320.0" layoutY="200.0" prefHeight="30.0" prefWidth="80.0" promptText="Enter price" />
+      <Label layoutX="40.0" layoutY="320.0" text="Expriration date">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="40.0" layoutY="340.0" prefHeight="30.0" prefWidth="180.0" promptText="Enter expiration date" />
+      <Button layoutX="296.0" layoutY="405.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" styleClass="search-button" stylesheets="@../Css/style.css" text="Add product">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="300.0" layoutY="320.0" text="Quantity">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="300.0" layoutY="340.0" prefHeight="30.0" prefWidth="100.0" promptText="Enter quantity" />
+      <Button fx:id="exit" layoutX="40.0" layoutY="405.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" styleClass="search-button" stylesheets="@../Css/style.css" text="Exit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
