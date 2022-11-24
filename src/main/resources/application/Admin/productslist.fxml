@@ -26,9 +26,8 @@
             <TableColumn fx:id="quantityCol" editable="false" prefWidth="60.0" text="Quantity" />
             <TableColumn fx:id="priceCol" editable="false" prefWidth="60.0" text="Price" />
             <TableColumn fx:id="dateCol" editable="false" prefWidth="120.0" text="Expiration Date" />
-            <TableColumn fx:id="categoryCol" editable="false" prefWidth="120.0" text="Category" />
+            <TableColumn fx:id="categoryCol" editable="false" prefWidth="100.0" text="Category" />
             <TableColumn fx:id="salesCol" editable="false" minWidth="0.0" text="Sales" />
-            <TableColumn fx:id="actionCol" editable="false" prefWidth="120.0" text="Action" />
          </columns>
       </TableView>
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

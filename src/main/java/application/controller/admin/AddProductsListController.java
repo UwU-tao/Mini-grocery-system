@@ -38,20 +38,7 @@ public class AddProductsListController implements Initializable {
         });
 
         addProduct.setOnAction(event -> {
-            try {
-                Parent parent = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Admin/addproduct.fxml")));
-                Stage newStage = new Stage();
-                Scene scene = new Scene(parent);
-                newStage.setTitle("Add Product");
-                newStage.setScene(scene);
-                newStage.initModality(Modality.APPLICATION_MODAL);
-                newStage.initOwner(addProduct.getScene().getWindow());
-                newStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResource("Img/add-product.png")).openStream()));
-//                newStage.initStyle(StageStyle.UNDECORATED);
-                newStage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            DataSource.getInstance().windowPopUp(addProduct.getScene().getWindow(), "Admin/addproduct.fxml");
         });
     }
 }

@@ -28,7 +28,7 @@ public class DashboardControllerAd implements Initializable {
     private Button logout;
 
     @FXML
-    private Button ordersDetails;
+    private Button memberslist;
 
     @FXML
     private Button productsList;
@@ -66,6 +66,12 @@ public class DashboardControllerAd implements Initializable {
             FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/productslist.fxml");
             ProductsListController controller = loader.getController();
             controller.showProducts();
+        });
+
+        memberslist.setOnAction(event -> {
+            FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/memberslist.fxml");
+            MembersController controller = loader.getController();
+            controller.showMembers();
         });
     }
 }

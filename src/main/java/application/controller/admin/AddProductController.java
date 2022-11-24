@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -38,6 +39,26 @@ public class AddProductController implements Initializable {
 
     @FXML
     private TextField quantity;
+
+    public void setCategory(int i) {
+        category.getSelectionModel().select(DataSource.getInstance().getCategoryName(i));
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate.setText(String.valueOf(expirationDate));
+    }
+
+    public void setName(String name) {
+        this.name.setText(name);
+    }
+
+    public void setPrice(double price) {
+        this.price.setText(String.valueOf(price));
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity.setText(String.valueOf(quantity));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

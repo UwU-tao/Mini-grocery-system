@@ -3,6 +3,7 @@ package application.utils;
 import application.Main;
 import application.controller.UserController;
 import application.models.Categories;
+import application.models.Customer;
 import application.models.Product;
 import application.models.User;
 import javafx.css.Match;
@@ -11,7 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.sql.*;
@@ -20,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,6 +85,25 @@ public class DataSource extends Product {
         return loader;
     }
 
+    public FXMLLoader windowPopUp(Window window, String path) {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(Main.class.getResource(path)));
+        try {
+            Parent parent = loader.load();
+            Stage newStage = new Stage();
+            Scene scene = new Scene(parent);
+            newStage.setTitle("Add Product");
+            newStage.setScene(scene);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.initOwner(window);
+            newStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResource("Img/add-product.png")).openStream()));
+//                newStage.initStyle(StageStyle.UNDECORATED);
+            newStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return loader;
+    }
+
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         try {
@@ -107,6 +131,40 @@ public class DataSource extends Product {
         return products;
     }
 
+    public Product getOneProduct(int id) {
+        Product product = new Product();
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.products where productid = "+id+"");
+            ResultSet rs = ps.executeQuery();
+            product.setProductid(rs.getInt("productid"));
+            product.setName(rs.getString("name"));
+            product.setPrice(rs.getDouble("price"));
+            product.setExpireddate(rs.getDate("expireddate"));
+            product.setQuantity(rs.getInt("quantity"));
+            product.setCategoryid(rs.getInt("categoryid"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
+
+    public Product getOneProduct(String namee) {
+        Product product = new Product();
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.products where name = ?");
+            ps.setString(1, namee);
+            ResultSet rs = ps.executeQuery();
+            product.setProductid(rs.getInt("productid"));
+            product.setName(rs.getString("name"));
+            product.setPrice(rs.getDouble("price"));
+            product.setExpireddate(rs.getDate("expireddate"));
+            product.setQuantity(rs.getInt("quantity"));
+            product.setCategoryid(rs.getInt("categoryid"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
     public void changePass(String newPass) {
         String query = "update users set password = ?, salt = ? where username = ?";
         try {
@@ -176,7 +234,6 @@ public class DataSource extends Product {
     }
 
     public int getCategoryId(String namee) {
-
         try {
             int id = 0;
             PreparedStatement ps = con.prepareStatement("select * from login.categories where name = ? limit 1");
@@ -188,6 +245,52 @@ public class DataSource extends Product {
         }
         return 0;
     }
+
+    public String getCategoryName(int id) {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.categories where categoryid = "+id+"");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getString("name");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean deleteProduct(int id) {
+        try {
+            PreparedStatement ps = con.prepareStatement("delete from login.products where productid = "+id+"");
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public List<Customer> getCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement("select users.*,  (select count(distinct orders.orderid) from login.orders where users.userid = orders.userid) orderscount from login.users where admin = 0");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Customer customer = new Customer();
+
+                customer.setUserid(rs.getInt("userid"));
+                customer.setUsername(rs.getString("username"));
+                customer.setPassword(rs.getString("password"));
+                customer.setEmail(rs.getString("email"));
+                customer.setOrderscount(rs.getInt("orderscount"));
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return customers;
+    }
+
     public List<String> getCategories() {
         List<String> categories = new ArrayList<>();
         try {

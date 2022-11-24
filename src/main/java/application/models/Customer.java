@@ -8,7 +8,7 @@ public class Customer {
     private String username;
     private String password;
     private String email;
-
+    private int orderscount;
     public int getUserid() {
         return userid;
     }
@@ -41,4 +41,11 @@ public class Customer {
         this.email = email;
     }
 
+    public int getOrderscount() {
+        return orderscount;
+    }
+
+    public void setOrderscount(int orderscount) {
+        this.orderscount = orderscount;
+    }
 }
