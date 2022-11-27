@@ -4,34 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="5nd commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/EditProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/editproduct.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/products.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application/Img/product.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" afterDir="false" />
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="6nd commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductsListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/DashboardControllerAd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/DashboardControllerAd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/MembersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/MembersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/ProductsListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/ProductsListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/EditPassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/EditPassController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Admin/addproductslist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/addproductslist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Admin/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Admin/memberslist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/memberslist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Admin/productslist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/productslist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +146,7 @@
       <workItem from="1669442875462" duration="3639000" />
       <workItem from="1669472357690" duration="2798000" />
       <workItem from="1669519255588" duration="4923000" />
-      <workItem from="1669539748820" duration="6811000" />
+      <workItem from="1669539748820" duration="7262000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1668315422354</created>
@@ -230,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669277972241</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="6nd commit">
+      <created>1669547957756</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669547957756</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +235,8 @@
     <MESSAGE value="3rd commit" />
     <MESSAGE value="4nd commit" />
     <MESSAGE value="5nd commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="5nd commit" />
+    <MESSAGE value="6nd commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="6nd commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
