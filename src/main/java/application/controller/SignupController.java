@@ -83,7 +83,7 @@ public class SignupController implements Initializable {
                 valid = false;
             }
 
-            if (DataSource.getInstance().getUserByUsername(user) != null) {
+            if (DataSource.getInstance().getUserByUsername(user).getPassword() != null) {
                 error += "This username has been used";
                 valid = false;
             }
@@ -97,10 +97,11 @@ public class SignupController implements Initializable {
                 if (DataSource.getInstance().addNewUser(user, securedPass, e, salt)) {
                     User us = DataSource.getInstance().getUserByUsername(user);
 
-                    UserController.setUsername(us.getUsername());
-                    UserController.setPassword(us.getPassword());
-                    UserController.setEmail(us.getEmail());
-                    UserController.setAdmin(us.getAdmin());
+                    UserController.getInstance().setUsername(us.getUsername());
+                    UserController.getInstance().setPassword(us.getPassword());
+                    UserController.getInstance().setEmail(us.getEmail());
+                    UserController.getInstance().setAdmin(us.getAdmin());
+                    UserController.getInstance().setUserid(us.getUserid());
 
                     Node node =(Node) event.getSource();
                     stage = (Stage) node.getScene().getWindow();

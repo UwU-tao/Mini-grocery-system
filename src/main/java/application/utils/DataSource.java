@@ -6,7 +6,6 @@ import application.models.Categories;
 import application.models.Customer;
 import application.models.Product;
 import application.models.User;
-import javafx.css.Match;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -34,7 +33,6 @@ public class DataSource extends Product {
     private final String URL = "jdbc:mysql://localhost:3306/login";
 
     private static DataSource instance;
-
 
     private DataSource() {
     }
@@ -134,14 +132,16 @@ public class DataSource extends Product {
     public Product getOneProduct(int id) {
         Product product = new Product();
         try {
-            PreparedStatement ps = con.prepareStatement("select * from login.products where productid = "+id+"");
+            PreparedStatement ps = con.prepareStatement("select * from login.products where productid = " + id + "");
             ResultSet rs = ps.executeQuery();
-            product.setProductid(rs.getInt("productid"));
-            product.setName(rs.getString("name"));
-            product.setPrice(rs.getDouble("price"));
-            product.setExpireddate(rs.getDate("expireddate"));
-            product.setQuantity(rs.getInt("quantity"));
-            product.setCategoryid(rs.getInt("categoryid"));
+            if (rs.next()) {
+                product.setProductid(rs.getInt("productid"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setExpireddate(rs.getDate("expireddate"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setCategoryid(rs.getInt("categoryid"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -154,17 +154,20 @@ public class DataSource extends Product {
             PreparedStatement ps = con.prepareStatement("select * from login.products where name = ?");
             ps.setString(1, namee);
             ResultSet rs = ps.executeQuery();
-            product.setProductid(rs.getInt("productid"));
-            product.setName(rs.getString("name"));
-            product.setPrice(rs.getDouble("price"));
-            product.setExpireddate(rs.getDate("expireddate"));
-            product.setQuantity(rs.getInt("quantity"));
-            product.setCategoryid(rs.getInt("categoryid"));
+            if (rs.next()) {
+                product.setProductid(rs.getInt("productid"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setExpireddate(rs.getDate("expireddate"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setCategoryid(rs.getInt("categoryid"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return product;
     }
+
     public void changePass(String newPass) {
         String query = "update users set password = ?, salt = ? where username = ?";
         try {
@@ -172,7 +175,7 @@ public class DataSource extends Product {
             String salt = PasswordUtils.getSaltvalue(20);
             ps.setString(1, PasswordUtils.generateSecuredPass(newPass, salt));
             ps.setString(2, salt);
-            ps.setString(3, UserController.getUsername());
+            ps.setString(3, UserController.getInstance().getUsername());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -196,10 +199,21 @@ public class DataSource extends Product {
         }
     }
 
+    public boolean deleteCustomer(String username) {
+        try {
+            PreparedStatement ps = con.prepareStatement("delete from login.users where username = '" + username + "'");
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public User getUserByUsername(String username) {
         User user = new User();
         try {
-            PreparedStatement ps = con.prepareStatement("select  * from login.users where username = ?");
+            PreparedStatement ps = con.prepareStatement("select * from login.users where username = ?");
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
@@ -210,6 +224,19 @@ public class DataSource extends Product {
                 user.setEmail(rs.getString(4));
                 user.setAdmin(rs.getInt(5));
                 user.setSalt(rs.getString(6));
+
+                int tmpp = rs.getInt(1);
+                PreparedStatement pss = con.prepareStatement("select * from login.cart where cart.userid = ?");
+                pss.setInt(1, tmpp);
+                ResultSet rss = pss.executeQuery();
+                List<Product> prod = new ArrayList<>();
+                while (rss.next()) {
+                    int tmp = rss.getInt(1);
+                    Product pr = getOneProduct(tmp);
+                    pr.setQuantity(rss.getInt(2));
+                    prod.add(pr);
+                }
+                user.setProducts(prod);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -217,13 +244,68 @@ public class DataSource extends Product {
         return user;
     }
 
+    public void translateData() {
+        List<Product> products = UserController.getInstance().getProducts();
+        int id = UserController.getInstance().getUserid();
+        if (products.size() > 0) {
+            try {
+                PreparedStatement ps = con.prepareStatement("delete from login.cart where userid = " + id + "");
+                ps.executeUpdate();
+
+                StringBuilder qr = new StringBuilder();
+                qr.append("insert into login.cart (productid, quantity, userid) values ");
+                for (int i = 0; i < products.size() - 1; i++) {
+                    qr.append("(" + products.get(i).getProductid() + "," + products.get(i).getQuantity() + "," + id + "),");
+                }
+                qr.append("(" + products.get(products.size() - 1).getProductid() + "," + products.get(products.size() - 1).getQuantity() + "," + id + ")");
+                PreparedStatement pe = con.prepareStatement(qr.toString());
+                pe.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean checkProduct(String namee) {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.products where name = ?");
+            ps.setString(1, namee);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public void importProducts(List<Product> products) {
+        if (products.size() > 0) {
+            try {
+                PreparedStatement ps2 = con.prepareStatement("update login.products set quantity = ? where name = ?");
+
+                for (Product product : products) {
+                    if (checkProduct(product.getName())) {
+                        ps2.setString(1, String.valueOf(getOneProduct(product.getName()).getQuantity() + product.getQuantity()));
+                        ps2.setString(2, product.getName());
+                        ps2.executeUpdate();
+                    } else {
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        String datee = dateFormat.format(product.getExpireddate());
+                        PreparedStatement ps = con.prepareStatement("insert into login.products(categoryid, name, price, expireddate, quantity, sales) values (" + product.getCategoryid() + ", " + "'" + product.getName() + "'" + ", " + product.getPrice() + ", " + "'" + datee + "', " + product.getQuantity() + ", " + 0 + ")");
+                        ps.executeUpdate();
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public boolean addProduct(int categoryid, String namee, double price, Date expirationDate, int quantity) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String datee = dateFormat.format(expirationDate);
-        System.out.println(datee);
 
         try {
-            PreparedStatement ps = con.prepareStatement("insert into login.products(categoryid, name, price, expireddate, quantity, sales) values ("+categoryid+", " + "'" + namee + "'" + ", " + price  + ", " + "'" + datee + "', " + quantity + ", " + 0 + ")");
+            PreparedStatement ps = con.prepareStatement("insert into login.products(categoryid, name, price, expireddate, quantity, sales) values (" + categoryid + ", " + "'" + namee + "'" + ", " + price + ", " + "'" + datee + "', " + quantity + ", " + 0 + ")");
 
             ps.executeUpdate();
             return true;
@@ -246,20 +328,26 @@ public class DataSource extends Product {
         return 0;
     }
 
-    public String getCategoryName(int id) {
+    public boolean updateProduct(int srcId, String desName, double pricee, String categoryy, int quantityy) {
         try {
-            PreparedStatement ps = con.prepareStatement("select * from login.categories where categoryid = "+id+"");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return rs.getString("name");
+            PreparedStatement ps = con.prepareStatement("update login.products set products.name = ?, products.price = ?, products.quantity = ?, products.categoryid = ? where products.productid = ?");
+            ps.setString(1, desName);
+            ps.setDouble(2, pricee);
+            ps.setInt(3, quantityy);
+            ps.setInt(4, getCategoryId(categoryy));
+            ps.setInt(5, srcId);
+            ps.executeUpdate();
+
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     public boolean deleteProduct(int id) {
         try {
-            PreparedStatement ps = con.prepareStatement("delete from login.products where productid = "+id+"");
+            PreparedStatement ps = con.prepareStatement("delete from login.products where productid = " + id + "");
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {

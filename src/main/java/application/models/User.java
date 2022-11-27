@@ -1,6 +1,10 @@
 package application.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
+    private List<Product> products = new ArrayList<>();
     private int userid;
     private String username;
     private String password;
@@ -54,5 +58,13 @@ public class User {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

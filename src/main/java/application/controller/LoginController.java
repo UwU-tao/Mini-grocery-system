@@ -48,11 +48,12 @@ public class LoginController implements Initializable {
                     boolean match = PasswordUtils.verifyPass(pass, us.getPassword(), us.getSalt());
 
                     if (match) {
-                        UserController.setUserid(us.getUserid());
-                        UserController.setUsername(us.getUsername());
-                        UserController.setPassword(us.getPassword());
-                        UserController.setEmail(us.getEmail());
-                        UserController.setAdmin(us.getAdmin());
+                        UserController.getInstance().setUserid(us.getUserid());
+                        UserController.getInstance().setUsername(us.getUsername());
+                        UserController.getInstance().setPassword(us.getPassword());
+                        UserController.getInstance().setEmail(us.getEmail());
+                        UserController.getInstance().setAdmin(us.getAdmin());
+                        UserController.getInstance().setProducts(us.getProducts());
 
                         Node node = (Node) event.getSource();
                         stage = (Stage) node.getScene().getWindow();

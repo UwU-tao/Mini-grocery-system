@@ -1,5 +1,6 @@
 package application.controller.admin;
 
+import application.models.Product;
 import application.utils.DataSource;
 import application.utils.Helper;
 import javafx.collections.FXCollections;
@@ -7,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -40,26 +40,6 @@ public class AddProductController implements Initializable {
     @FXML
     private TextField quantity;
 
-    public void setCategory(int i) {
-        category.getSelectionModel().select(DataSource.getInstance().getCategoryName(i));
-    }
-
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate.setText(String.valueOf(expirationDate));
-    }
-
-    public void setName(String name) {
-        this.name.setText(name);
-    }
-
-    public void setPrice(double price) {
-        this.price.setText(String.valueOf(price));
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity.setText(String.valueOf(quantity));
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         category.setItems(FXCollections.observableArrayList(DataSource.getInstance().getCategories()));
@@ -79,8 +59,14 @@ public class AddProductController implements Initializable {
                 int q = Integer.parseInt(quantity.getText());
                 Date date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(expirationDate.getText());
 
+                Product product = new Product();
+                product.setQuantity(q);
+                product.setCategoryid(categoryid);
+                product.setName(n);
+                product.setExpireddate(date);
+                product.setPrice(p);
 
-                boolean check = DataSource.getInstance().addProduct(categoryid, n, p, date, q);
+                boolean check = DashboardControllerAd.getListController().addProduct(product);
 
                 if (check) {
                     Helper.alertBox("Succeed", "Successfully");
@@ -88,8 +74,8 @@ public class AddProductController implements Initializable {
                     expirationDate.clear();
                     price.clear();
                     quantity.clear();
+                    DashboardControllerAd.getListController().showProducts();
                 }
-
             } catch (ParseException e) {
                 e.printStackTrace();
             }

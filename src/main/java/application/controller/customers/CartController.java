@@ -1,57 +1,117 @@
 package application.controller.customers;
 
-import application.Main;
 import application.controller.UserController;
 import application.models.Product;
 import application.utils.DataSource;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
     @FXML
+    private Button back;
+
+    @FXML
+    private TableColumn<Product, String> categoryCol;
+
+    @FXML
+    private TableColumn<Product, String> dateCol;
+
+    @FXML
     private Label name;
 
     @FXML
-    private TableView<Product> tableView;
+    private TableColumn<Product, String> nameCol;
 
     @FXML
-    private TableView<Product> cartTableView = new TableView<>();
+    private TableColumn<Product, String> priceCol;
 
     @FXML
-    private Button back;
-
+    private TableView<Product> cartTable;
 
     @FXML
+    private TableColumn<Product, String> quantityCol;
+
+    @FXML
+    private TableColumn<Product, String> salesCol;
+
     public void showProducts() {
-        Task<ObservableList<Product>> getProductTask = new Task<>() {
+        addActions();
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("expireddate"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+        cartTable.setItems(FXCollections.observableArrayList(UserController.getInstance().getProducts()));
+    }
+
+    private void addActions() {
+        TableColumn<Product, String> id = new TableColumn<>("#");
+        id.setCellValueFactory(product -> new ReadOnlyObjectWrapper<>(cartTable.getItems().indexOf(product.getValue()) + ""));
+        id.setSortable(false);
+
+        TableColumn tableColumn = new TableColumn<>("Actions");
+        tableColumn.setPrefWidth(200);
+        Callback<TableColumn<Product, Void>, TableCell<Product, Void>> cellFactory = new Callback<>() {
+
             @Override
-            protected ObservableList<Product> call() {
-                return FXCollections.observableArrayList(DataSource.getInstance().getProducts());
+            public TableCell<Product, Void> call(TableColumn<Product, Void> param) {
+                return new TableCell<>() {
+                    private final Button deleteButton = new Button("Delete from cart");
+
+                    {
+                        deleteButton.setOnAction(event -> {
+                            Product product = getTableView().getItems().get(getIndex());
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setTitle("Confirm");
+                            alert.setHeaderText("Are you sure want to delete " + product.getName() + " from cart?");
+
+                            Optional<ButtonType> confirm = alert.showAndWait();
+                            if (confirm.get() == ButtonType.OK) {
+                                UserController.getInstance().deleteProduct(product);
+                                alert.setTitle("Succeed");
+                                alert.setHeaderText("Successfully");
+                                alert.show();
+                            }
+                        });
+                    }
+
+                    private final HBox buttonsPane = new HBox();
+
+                    {
+                        buttonsPane.setSpacing(5);
+                        buttonsPane.getChildren().add(deleteButton);
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(buttonsPane);
+                        }
+                    }
+                };
             }
         };
-        cartTableView.itemsProperty().bind(getProductTask.valueProperty());
-//        addActionButtonsToTable();
-        new Thread(getProductTask).start();
+        tableColumn.setCellFactory(cellFactory);
+
+        cartTable.getColumns().add(0, id);
+        cartTable.getColumns().add(tableColumn);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        name.setText(UserController.getUsername().toUpperCase());
+        name.setText(UserController.getInstance().getUsername().toUpperCase());
         back.setOnAction(event -> {
             DataSource.getInstance().fxmlLoader(event, "Customer/dashboard.fxml");
         });

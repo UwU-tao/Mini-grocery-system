@@ -30,6 +30,9 @@ public class DashboardController implements Initializable {
     private Button edit;
 
     @FXML
+    private Button products;
+
+    @FXML
     private StackPane stack;
 
     @FXML
@@ -40,7 +43,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        name.setText(UserController.getUsername().toUpperCase());
+        name.setText(UserController.getInstance().getUsername().toUpperCase());
 
         logout.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -49,7 +52,9 @@ public class DashboardController implements Initializable {
             alert.setTitle("Log out?");
             Optional<ButtonType> optional = alert.showAndWait();
             if (optional.get() == ButtonType.OK) {
-                UserController.clearSession();
+                DataSource.getInstance().translateData();
+                UserController.getInstance().clearSession();
+
                 Stage stage;
                 Node node = (Node) event.getSource();
                 stage = (Stage) node.getScene().getWindow();
@@ -74,6 +79,12 @@ public class DashboardController implements Initializable {
         edit.setOnAction(event -> {
             DataSource.getInstance().fxmlLoader(event, "Customer/editpassword.fxml");
 
+        });
+
+        products.setOnAction(event -> {
+            FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Customer/products.fxml");
+            ProductsController controller = loader.getController();
+            controller.showProducts();
         });
     }
 }

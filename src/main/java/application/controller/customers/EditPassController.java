@@ -34,7 +34,7 @@ public class EditPassController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         confirm.setOnAction(event -> {
-            boolean check = PasswordUtils.verifyPass(oldpass.getText(), UserController.getPassword(), DataSource.getInstance().getUserByUsername(UserController.getUsername()).getSalt());
+            boolean check = PasswordUtils.verifyPass(oldpass.getText(), UserController.getInstance().getPassword(), DataSource.getInstance().getUserByUsername(UserController.getInstance().getUsername()).getSalt());
             if (!check) {
                 Helper.alertBox("Error!!!", "You have entered wrong password");
             } else {

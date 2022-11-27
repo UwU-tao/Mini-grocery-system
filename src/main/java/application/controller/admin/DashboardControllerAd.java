@@ -20,7 +20,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DashboardControllerAd implements Initializable {
+    private static ProductsListController controller = new ProductsListController();
+    public static ProductsListController getController() {return controller;}
 
+    private static AddProductsListController listController = new AddProductsListController();
+    public static AddProductsListController getListController() {return listController;}
     @FXML
     private Button addProducts;
 
@@ -42,7 +46,7 @@ public class DashboardControllerAd implements Initializable {
             alert.setTitle("Log out?");
             Optional<ButtonType> optional = alert.showAndWait();
             if (optional.get() == ButtonType.OK) {
-                UserController.clearSession();
+                UserController.getInstance().clearSession();
                 Stage stage;
                 Node node = (Node) event.getSource();
                 stage = (Stage) node.getScene().getWindow();
@@ -51,7 +55,7 @@ public class DashboardControllerAd implements Initializable {
                 try {
                     scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("SignInUI.fxml"))));
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
                 stage.setScene(scene);
                 stage.show();
@@ -59,13 +63,13 @@ public class DashboardControllerAd implements Initializable {
         });
 
         addProducts.setOnAction(event -> {
-            DataSource.getInstance().fxmlLoader(event, "Admin/addproductslist.fxml");
+            FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/addproductslist.fxml");
+            listController = loader.getController();
         });
 
         productsList.setOnAction(event -> {
             FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/productslist.fxml");
-            ProductsListController controller = loader.getController();
-            controller.showProducts();
+            controller = loader.getController();
         });
 
         memberslist.setOnAction(event -> {
