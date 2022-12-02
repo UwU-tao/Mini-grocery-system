@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="7nd commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="8nd commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,24 +30,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/StoreManagementSystem-main&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Java/demo",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\demo\src\main\resources\application\Img" />
@@ -161,7 +149,7 @@
       <workItem from="1669563905521" duration="1193000" />
       <workItem from="1669860754465" duration="209000" />
       <workItem from="1669861019841" duration="115000" />
-      <workItem from="1669986100502" duration="12101000" />
+      <workItem from="1669986100502" duration="12407000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1668315422354</created>
@@ -233,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669560482269</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="8nd commit">
+      <created>1669999354673</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669999354673</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +254,8 @@
     <MESSAGE value="5nd commit" />
     <MESSAGE value="6nd commit" />
     <MESSAGE value="7nd commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="7nd commit" />
+    <MESSAGE value="8nd commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="8nd commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
