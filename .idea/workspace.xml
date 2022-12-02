@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="6nd commit">
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="7nd commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8184a260-3842-4d1f-be38-0152f993d1fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/admin/AddProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Customer/cart.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +157,11 @@
       <workItem from="1669472357690" duration="2798000" />
       <workItem from="1669519255588" duration="4923000" />
       <workItem from="1669539748820" duration="7262000" />
+      <workItem from="1669560401657" duration="91000" />
+      <workItem from="1669563905521" duration="1193000" />
+      <workItem from="1669860754465" duration="209000" />
+      <workItem from="1669861019841" duration="115000" />
+      <workItem from="1669986100502" duration="12101000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1668315422354</created>
@@ -211,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669547957756</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="7nd commit">
+      <created>1669560482269</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669560482269</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +258,8 @@
     <MESSAGE value="4nd commit" />
     <MESSAGE value="5nd commit" />
     <MESSAGE value="6nd commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="6nd commit" />
+    <MESSAGE value="7nd commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="7nd commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

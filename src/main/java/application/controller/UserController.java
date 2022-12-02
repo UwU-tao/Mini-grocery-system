@@ -65,6 +65,7 @@ public class UserController {
         this.admin = admin;
     }
 
+
     public List<Product> getProducts() {
         return this.products;
     }
@@ -99,5 +100,6 @@ public class UserController {
         password = null;
         email = null;
         admin = 0;
+        products.clear();
     }
 }

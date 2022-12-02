@@ -74,6 +74,7 @@ public class AddProductController implements Initializable {
                     expirationDate.clear();
                     price.clear();
                     quantity.clear();
+                    category.getSelectionModel().select(-1);
                     DashboardControllerAd.getListController().showProducts();
                 }
             } catch (ParseException e) {

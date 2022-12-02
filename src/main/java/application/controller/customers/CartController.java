@@ -7,18 +7,23 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
     @FXML
     private Button back;
+
+    @FXML
+    private Button checkout;
 
     @FXML
     private TableColumn<Product, String> categoryCol;
@@ -45,7 +50,6 @@ public class CartController implements Initializable {
     private TableColumn<Product, String> salesCol;
 
     public void showProducts() {
-        addActions();
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
@@ -78,6 +82,8 @@ public class CartController implements Initializable {
                             Optional<ButtonType> confirm = alert.showAndWait();
                             if (confirm.get() == ButtonType.OK) {
                                 UserController.getInstance().deleteProduct(product);
+                                showProducts();
+
                                 alert.setTitle("Succeed");
                                 alert.setHeaderText("Successfully");
                                 alert.show();
@@ -88,6 +94,7 @@ public class CartController implements Initializable {
                     private final HBox buttonsPane = new HBox();
 
                     {
+                        buttonsPane.setAlignment(Pos.CENTER);
                         buttonsPane.setSpacing(5);
                         buttonsPane.getChildren().add(deleteButton);
                     }
@@ -111,9 +118,23 @@ public class CartController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addActions();
+        showProducts();
+
         name.setText(UserController.getInstance().getUsername().toUpperCase());
         back.setOnAction(event -> {
             DataSource.getInstance().fxmlLoader(event, "Customer/dashboard.fxml");
+        });
+
+        checkout.setOnAction(event -> {
+            if (DataSource.getInstance().recordOrder()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("succeed");
+                alert.setHeaderText("Successfully");
+                alert.show();
+
+                DataSource.getInstance().recordOrder();
+            }
         });
     }
 }

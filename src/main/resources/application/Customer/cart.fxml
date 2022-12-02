@@ -17,7 +17,7 @@
             <Font name="Cambria" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="697.0" layoutY="526.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="182.0" text="CHECKOUT">
+      <Button fx:id="checkout" layoutX="697.0" layoutY="526.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="182.0" text="CHECKOUT">
          <font>
             <Font name="Cambria Bold" size="20.0" />
          </font>
@@ -69,7 +69,7 @@
             <TableColumn fx:id="priceCol" editable="false" prefWidth="60.0" text="Price" />
             <TableColumn fx:id="dateCol" editable="false" prefWidth="120.0" text="Expiration Date" />
             <TableColumn fx:id="categoryCol" editable="false" prefWidth="100.0" text="Category" />
-            <TableColumn fx:id="salesCol" editable="false" minWidth="0.0" text="Sales" />
+            <TableColumn fx:id="salesCol" editable="false" minWidth="0.0" prefWidth="90.0" text="Sales" />
          </columns>
       </TableView>
    </children>

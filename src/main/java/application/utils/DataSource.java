@@ -20,10 +20,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -102,6 +100,7 @@ public class DataSource extends Product {
         return loader;
     }
 
+
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         try {
@@ -141,6 +140,10 @@ public class DataSource extends Product {
                 product.setExpireddate(rs.getDate("expireddate"));
                 product.setQuantity(rs.getInt("quantity"));
                 product.setCategoryid(rs.getInt("categoryid"));
+
+                PreparedStatement pss = con.prepareStatement("select * from login.categories where categoryid = "+product.getCategoryid()+"");
+                ResultSet rss = pss.executeQuery();
+                if (rss.next())  product.setCategory(rss.getString(2));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -226,7 +229,7 @@ public class DataSource extends Product {
                 user.setSalt(rs.getString(6));
 
                 int tmpp = rs.getInt(1);
-                PreparedStatement pss = con.prepareStatement("select * from login.cart where cart.userid = ?");
+                PreparedStatement pss = con.prepareStatement("select * from login.cart where userid = ?");
                 pss.setInt(1, tmpp);
                 ResultSet rss = pss.executeQuery();
                 List<Product> prod = new ArrayList<>();
@@ -244,20 +247,63 @@ public class DataSource extends Product {
         return user;
     }
 
+    private int getLastIdx() {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.orders where orderid = (select max(orderid) from login.orders)");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt("orderid") + 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private void updateIdx() {
+        try {
+            PreparedStatement pss = con.prepareStatement("set foreign_key_checks = 0");
+            pss.executeUpdate();
+
+            PreparedStatement ps = con.prepareStatement("update login.cart set orderid = "+getLastIdx()+" where userid = "+UserController.getInstance().getUserid()+"");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean recordOrder() {
+        try {
+            PreparedStatement ps = con.prepareStatement("insert into login.orders values (?, ?, ?)");
+            updateIdx();
+            ps.setInt(1, getLastIdx());
+            ps.setInt(2, UserController.getInstance().getUserid());
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            ps.setString(3, dateFormat.format(Calendar.getInstance().getTime()));
+            ps.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public void translateData() {
         List<Product> products = UserController.getInstance().getProducts();
         int id = UserController.getInstance().getUserid();
         if (products.size() > 0) {
             try {
+                PreparedStatement pss = con.prepareStatement("set foreign_key_checks = 0");
+                pss.executeUpdate();
+
                 PreparedStatement ps = con.prepareStatement("delete from login.cart where userid = " + id + "");
                 ps.executeUpdate();
 
                 StringBuilder qr = new StringBuilder();
-                qr.append("insert into login.cart (productid, quantity, userid) values ");
+                qr.append("insert into login.cart (productid, quantity, userid, orderid) values ");
                 for (int i = 0; i < products.size() - 1; i++) {
-                    qr.append("(" + products.get(i).getProductid() + "," + products.get(i).getQuantity() + "," + id + "),");
+                    qr.append("(" + products.get(i).getProductid() + "," + products.get(i).getQuantity() + "," + id + "," + getLastIdx() + "),");
                 }
-                qr.append("(" + products.get(products.size() - 1).getProductid() + "," + products.get(products.size() - 1).getQuantity() + "," + id + ")");
+                qr.append("(" + products.get(products.size() - 1).getProductid() + "," + products.get(products.size() - 1).getQuantity() + "," + id + "," + getLastIdx() + ")");
                 PreparedStatement pe = con.prepareStatement(qr.toString());
                 pe.executeUpdate();
             } catch (SQLException e) {

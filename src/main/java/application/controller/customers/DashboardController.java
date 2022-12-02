@@ -71,9 +71,7 @@ public class DashboardController implements Initializable {
         });
 
         cart.setOnAction(event -> {
-            FXMLLoader fxmlLoader = DataSource.getInstance().fxmlLoader(event,"Customer/cart.fxml");
-            CartController cartController = fxmlLoader.getController();
-            cartController.showProducts();
+            DataSource.getInstance().fxmlLoader(event,"Customer/cart.fxml");
         });
 
         edit.setOnAction(event -> {
