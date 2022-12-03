@@ -2,10 +2,7 @@ package application.utils;
 
 import application.Main;
 import application.controller.UserController;
-import application.models.Categories;
-import application.models.Customer;
-import application.models.Product;
-import application.models.User;
+import application.models.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -188,7 +185,7 @@ public class DataSource extends Product {
 
     public boolean addNewUser(String username, String password, String email, String salt) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into login.users(username, password, email, admin, salt) values (?, ?, ?, 0, ?)");
+            PreparedStatement ps = con.prepareStatement("insert into login.users(username, password, email, admin, salt) values (?, ?, ?, 1, ?)");
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, email);
@@ -247,34 +244,45 @@ public class DataSource extends Product {
         return user;
     }
 
-    private int getLastIdx() {
+    public void deleteFromCart(int productid) {
         try {
-            PreparedStatement ps = con.prepareStatement("select * from login.orders where orderid = (select max(orderid) from login.orders)");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) return rs.getInt("orderid") + 1;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
-    private void updateIdx() {
-        try {
-            PreparedStatement pss = con.prepareStatement("set foreign_key_checks = 0");
-            pss.executeUpdate();
-
-            PreparedStatement ps = con.prepareStatement("update login.cart set orderid = "+getLastIdx()+" where userid = "+UserController.getInstance().getUserid()+"");
+            PreparedStatement ps = con.prepareStatement("delete from login.cart where productid = "+productid+"");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    private int getLastIdx() {
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.orders where orderid = (select max(orderid) from login.orders)");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt("orderid");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private int updateIdx() {
+        int res = 0;
+        try {
+            PreparedStatement pss = con.prepareStatement("set foreign_key_checks = 0");
+            pss.executeUpdate();
+
+            res = getLastIdx();
+            PreparedStatement ps = con.prepareStatement("update login.cart set orderid = "+res+" where userid = "+UserController.getInstance().getUserid()+"");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
     public boolean recordOrder() {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into login.orders values (?, ?, ?)");
-            updateIdx();
-            ps.setInt(1, getLastIdx());
+            PreparedStatement ps = con.prepareStatement("insert into login.orders(orderid, userid, orderdate) values (?, ?, ?)");
+            ps.setInt(1, updateIdx() + 1);
             ps.setInt(2, UserController.getInstance().getUserid());
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             ps.setString(3, dateFormat.format(Calendar.getInstance().getTime()));
@@ -310,6 +318,27 @@ public class DataSource extends Product {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<Order> getDetails() {
+        List<Order> orders = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement("select * from login.orders");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+
+                order.setOrderid(rs.getInt("orderid"));
+                order.setUserid(rs.getInt("userid"));
+                order.setOrderdate(rs.getDate("orderdate"));
+
+                orders.add(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orders;
     }
 
     public boolean checkProduct(String namee) {

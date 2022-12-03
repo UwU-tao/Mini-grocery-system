@@ -37,6 +37,10 @@ public class DashboardControllerAd implements Initializable {
     @FXML
     private Button productsList;
 
+    @FXML
+    private Button orders;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logout.setOnAction(event -> {
@@ -76,6 +80,10 @@ public class DashboardControllerAd implements Initializable {
             FXMLLoader loader = DataSource.getInstance().fxmlLoader(event, "Admin/memberslist.fxml");
             MembersController controller = loader.getController();
             controller.showMembers();
+        });
+
+        orders.setOnAction(event -> {
+            DataSource.getInstance().fxmlLoader(event, "Admin/ordersdetails.fxml");
         });
     }
 }

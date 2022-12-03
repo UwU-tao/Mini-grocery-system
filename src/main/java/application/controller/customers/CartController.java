@@ -132,8 +132,6 @@ public class CartController implements Initializable {
                 alert.setTitle("succeed");
                 alert.setHeaderText("Successfully");
                 alert.show();
-
-                DataSource.getInstance().recordOrder();
             }
         });
     }

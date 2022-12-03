@@ -1,8 +1,10 @@
 package application.controller;
 
 import application.models.Product;
+import application.utils.DataSource;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserController {
@@ -89,6 +91,7 @@ public class UserController {
         for (Product p : products) {
             if (p.getProductid() == product.getProductid()) {
                 products.remove(p);
+                DataSource.getInstance().deleteFromCart(p.getProductid());
                 return;
             }
         }

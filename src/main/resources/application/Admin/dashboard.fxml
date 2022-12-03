@@ -33,7 +33,7 @@
             </Pane>
             <Pane prefHeight="50.0" prefWidth="150.0">
                <children>
-                  <Button fx:id="ordersDetails" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Orders Details">
+                  <Button fx:id="orders" layoutX="70.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@../Css/style.css" text="Orders">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
