@@ -43,7 +43,7 @@ public class SignupController implements Initializable {
                 Node node = (Node) event.getSource();
                 stage = (Stage) node.getScene().getWindow();
                 stage.close();
-                scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Customer/dashboard.fxml"))));
+                scene = new Scene(FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("SignInUI.fxml"))));
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {

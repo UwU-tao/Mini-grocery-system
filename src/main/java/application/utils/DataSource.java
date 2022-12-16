@@ -185,7 +185,7 @@ public class DataSource extends Product {
 
     public boolean addNewUser(String username, String password, String email, String salt) {
         try {
-            PreparedStatement ps = con.prepareStatement("insert into login.users(username, password, email, admin, salt) values (?, ?, ?, 1, ?)");
+            PreparedStatement ps = con.prepareStatement("insert into login.users(username, password, email, admin, salt) values (?, ?, ?, 0, ?)");
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, email);
@@ -295,6 +295,20 @@ public class DataSource extends Product {
         return false;
     }
 
+    public void removeProduct(int productid, int quantity) {
+        try {
+            PreparedStatement pss = con.prepareStatement("select * from login.products where productid = "+productid+"");
+            ResultSet rss = pss.executeQuery();
+
+            int tmp = 0;
+            if (rss.next()) tmp = rss.getInt("quantity") - quantity;
+            PreparedStatement ps = con.prepareStatement("update login.products set quantity = "+tmp+" where productid = "+productid+"");
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void translateData() {
         List<Product> products = UserController.getInstance().getProducts();
         int id = UserController.getInstance().getUserid();

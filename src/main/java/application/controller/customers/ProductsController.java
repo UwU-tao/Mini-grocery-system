@@ -13,10 +13,12 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ProductsController implements Initializable {
+    private List<Product> products = DataSource.getInstance().getProducts();
     @FXML
     private Button back;
     @FXML
@@ -47,7 +49,7 @@ public class ProductsController implements Initializable {
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("expireddate"));
         categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
-        productsTable.setItems(FXCollections.observableArrayList(DataSource.getInstance().getProducts()));
+        productsTable.setItems(FXCollections.observableArrayList(products));
     }
 
     private void addActions() {
@@ -77,7 +79,16 @@ public class ProductsController implements Initializable {
                                 alert.setHeaderText("Successfully");
                                 alert.show();
 
-                                UserController.getInstance().addProduct(product);
+                                for (Product p : products) {
+                                    if (p.getProductid() == product.getProductid()) {
+                                        if (p.getQuantity() > 0) UserController.getInstance().addProduct(product);
+                                        else {
+                                            alert.setTitle("Error");
+                                            alert.setHeaderText("Insufficient quantity");
+                                            alert.show();
+                                        }
+                                    }
+                                }
                             }
                         });
                     }
@@ -109,6 +120,7 @@ public class ProductsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         back.setOnAction(event -> {
             DataSource.getInstance().fxmlLoader(event, "Customer/dashboard.fxml");
         });

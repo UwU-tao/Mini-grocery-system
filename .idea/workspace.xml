@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="11nd commit" />
+    <list default="true" id="170e3da6-b5d4-4445-8b36-996e1626ce3a" name="Changes" comment="11nd commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/customers/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/customers/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/utils/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application/Admin/productslist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application/Admin/productslist.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,6 +160,12 @@
       <workItem from="1669861019841" duration="115000" />
       <workItem from="1669986100502" duration="12624000" />
       <workItem from="1670036670388" duration="5190000" />
+      <workItem from="1670042412236" duration="644000" />
+      <workItem from="1670049100448" duration="4682000" />
+      <workItem from="1670380708118" duration="14000" />
+      <workItem from="1670662546253" duration="23000" />
+      <workItem from="1671162987515" duration="10000" />
+      <workItem from="1671192143217" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1668315422354</created>
@@ -251,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670042287745</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="11nd commit">
+      <created>1670042457955</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670042457955</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,7 +4,6 @@ import application.models.Product;
 import application.utils.DataSource;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class UserController {
@@ -96,6 +95,8 @@ public class UserController {
             }
         }
     }
+
+    public void clearProducts() {products.clear();}
 
     public void clearSession() {
         userid = 0;

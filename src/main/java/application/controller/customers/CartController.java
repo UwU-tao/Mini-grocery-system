@@ -15,6 +15,7 @@ import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -132,6 +133,14 @@ public class CartController implements Initializable {
                 alert.setTitle("succeed");
                 alert.setHeaderText("Successfully");
                 alert.show();
+
+                List<Product> productList = UserController.getInstance().getProducts();
+                for (Product p : productList) {
+                    DataSource.getInstance().removeProduct(p.getProductid(), p.getQuantity());
+                }
+
+                UserController.getInstance().clearProducts();
+                showProducts();
             }
         });
     }
